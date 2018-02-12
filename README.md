@@ -3,7 +3,7 @@
 **Deployed example [here](ADD).**
 
 ## What it does
-Returns image search results for a given search term.
+Returns an array of image objects for a given search term.
 
 Use `?offser=x` to set the number of results you would like returned.
 
