@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Image Search API - Josh Amore</title>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Image Search API</h1>
+            <p>This API returns image results for a provided search term. You can set the number of results to be returned.</p>
+            <p>Use <code>?offser=x</code> to set the number of results you would like returned.</p>
+            <p><strong>The following values are returned for each result object:</strong></p>
+            <ul>
+                <li><strong>URL -</strong> Full image link</li>
+                <li><strong>Snippet -</strong> Description of image</li>
+                <li><strong>Thumbnail -</strong> Small image link</li>
+                <li><strong>Context -</strong> Page link</li>
+            </ul>
+            <h2>Example Usage:</h2>
+            <p><strong>Passing this:</strong></p>
+            <p><code>www.example.com/api/imagesearch/cow?offset=2</code></p>
+
+            <p><strong>Returns this:</strong></p>
+            <p><code>[{"url":"https://farm1.staticflickr.com/379/32609476681_16765aab14_z.jpg","snippet":"Cows","thumbnail":"https://farm1.staticflickr.com/379/32609476681_16765aab14_q.jpg","context":"https://www.flickr.com/photos/135894189@N07/32609476681"},{"url":"https://farm5.staticflickr.com/4276/34267350114_7913cee737_z.jpg","snippet":"Cow","thumbnail":"https://farm5.staticflickr.com/4276/34267350114_7913cee737_q.jpg","context":"https://www.flickr.com/photos/86098980@N06/34267350114"}]</code></p>
+            <br>
+            <p><em>Coded by <a href='https://joshamore.com' target="_blank">Josh Amore</a> | See the code <a href='https://github.com/joshamore/short_url' target='_blank'>here</a></em></p>
+        </div>
+    </body>
+
+</html>
