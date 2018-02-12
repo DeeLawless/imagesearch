@@ -26,16 +26,15 @@ app.get('/', function (req, res) {
 
 // Routing search request
 app.get('/api/imagesearch/:search', function (req, res) {
-    console.log(req.params.search);
-    console.log(req.query.offset);
+    let offset = req.query.offset;
 
     // Validating offset
-    if (isNaN(req.query.offset) || req.query.offset < 1 || req.query.offset > 100) {
+    if (isNaN(offset) || offset < 1 || offset > 100) {
         res.send('Offset must: be a number, be greater than 1, be less than 100.');
     }
 
     // Getting images from Flickr and sending to user in an array of objects
-    getImages(req.params.search, req.query.offset, function(err, results) {
+    getImages(req.params.search, offset, function(err, results) {
         if (err) {
             console.log('API Error');
         }
