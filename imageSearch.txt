@@ -1,0 +1,85 @@
+http://localhost:3000/ to start the app
+
+http://localhost:3000/api/imagesearch/CesiumAircraft?offset=1
+
+ToDo
+http://localhost:3000/api/imagesearch/cow?offset=1 
+returns 
+[{"url":"https://live.staticflickr.com/7458/27321811510_e8777ff7d7_z.jpg","snippet":"Lazy cow","thumbnail":"https://live.staticflickr.com/7458/27321811510_e8777ff7d7_q.jpg","context":"https://www.flickr.com/photos/13668502@N05/27321811510"}]
+
+change from staticflickr.com to CesiumAircraft ImageSearch table
+DONE create new ImageSearch table with 
+	url
+	snippet
+	thumbnail
+	context
+
+edge://inspect/#pages
+This brings up all targets that can be inspected.  Find the green hexagon.  Click on inspect.
+This brings up the debugging guide.
+
+https://nodejs.org/en/docs/guides/debugging-getting-started/
+https://www.youtube.com/watch?v=qZ3oFZkdGfU
+https://www.youtube.com/watch?v=Xb_0awoShR8
+
+IN BROWSER, TYPE 
+about:inspect
+These are inspectable targets - you'll see node
+Click on dedicated Dev Tools for Node
+Or open Chrome DevTools (F12) - see Node.js green icon - same way to get there
+The dedicated window is great - make changes - dedicated window auto connects to the node
+
+C:\Users\user\Source\Repos\imagesearch>node inspect app.js
+
+INSPECT RUNS IT, TURNS ON THE DEBUGGER, AND PAUSES AT VERY FIRST STATEMENT OF THE SCRIPT
+MAKE SURE BREAKPOINTS ARE IN PLACE
+YOU WILL GET THIS:
+< Debugger listening on ws://127.0.0.1:9229/7f376165-2286-42c5-87df-75727c1ca785
+< For help, see: https://nodejs.org/en/docs/inspector
+<
+connecting to 127.0.0.1:9229 ... ok
+< Debugger attached.
+<
+Break on start in app.js:25
+ 23
+ 24 //begin imagesearch code
+>25 const express = require('express');
+ 26 const path = require('path');
+ 27 const mongo = require('mongodb').MongoClient;
+
+TYPE C TO CONTINUE
+debug> c
+< (node:5468) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+< (Use `node --trace-warnings ...` to show where the warning was created)
+<
+debug>
+
+TYPE HELP TO GET COMMANDS
+
+Web Server app, when run it, might get some errors but the console doesn't tell us much.
+In Chrome app, open the dedicated Dev Tools for Node.
+
+rt-click blockbox script to tell it to not step thru it
+open another console. type arguments.
+ctrl-D for multiple selection.
+
+different approaches for debugging:
+1. debug after starting: process._debugProcess(pid);
+2. GBD-stype interface (command line): node inspect hello.js
+3. drive w DevTools protocol via WS port 10:32
+4. 2008 core inspector module: const require('inspector') 11:30
+
+Tracing in Node
+to understand what's happening in the browser
+anything that is taking time
+this capability is avail in node
+
+**** Important to put the host, database, and collection!
+const url = 'mongodb://localhost:27017/CesiumAircraft.ImageSearch';
+http://localhost:3000/api/imagesearch/dog?offset=1
+results:
+[{"url":"https://live.staticflickr.com/1900/29509689827_8fb5fd812a_z.jpg","snippet":"Dog in the bluebells","thumbnail":"https://live.staticflickr.com/1900/29509689827_8fb5fd812a_q.jpg","context":"https://www.flickr.com/photos/97923098@N02/29509689827"}]
+Note: Dog in the bluebells is the flickr snippet, not the mongodb db snippet field.
+
+**** Next
+check in

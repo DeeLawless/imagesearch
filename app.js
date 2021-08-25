@@ -1,14 +1,39 @@
+//////begin Connect to MongoDB Atlas https://docs.mongodb.com/drivers/node/current/fundamentals/connection/#std-label-connect-atlas-node-driver
+////const { MongoClient } = require("mongodb");
+////// Connection URI
+////const uri = "mongodb://localhost:27017";
+////    //"mongodb+srv://sample-hostname:27017/?poolSize=20&writeConcern=majority";
+////// Create a new MongoClient
+////const client = new MongoClient(uri);
+////async function run() {
+////    try {
+////        // Connect the client to the server
+////        await client.connect();
+
+////        // Establish and verify connection
+////        await client.db("admin").command({ ping: 1 });
+////        console.log("Connected successfully to server");
+////    } finally {
+////        // Ensures that the client will close when you finish/error
+////        await client.close();
+////    }
+////}
+////run().catch(console.dir);
+
+
+//begin imagesearch code
 const express = require('express');
 const path = require('path');
 const mongo = require('mongodb').MongoClient;
 const Flickr = require("flickrapi"),
     flickrOptions = {
-      api_key: 'ADD KEY',
-      secret: 'ADD SECRET'
+      api_key: '0fae7eebe7b6f279f0c43375e201ce27',
+      secret: 'abfa579ea6ef9e1a'
     };
 
 // DB URL
-const url = 'ADD DB URL/URI';
+//const url = 'ADD DB URL/URI';
+const url = 'mongodb://localhost:27017/CesiumAircraft.ImageSearch';
 
 // set the port of application
 const port = process.env.PORT || 3000;
